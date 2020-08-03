@@ -4,10 +4,12 @@ class HikingProjectService < ApplicationService
     params = { lat: lat,
                lon: long }
     get_json('/data/get-trails', params)
+  end
+
   private
 
   def conn
-    Faraday.new('http://www.hikingproject.com') do |f|
+    Faraday.new('https://www.hikingproject.com') do |f|
       f.adapter Faraday.default_adapter
       f.params[:key] = ENV['HIKING_PROJECT_API']
     end

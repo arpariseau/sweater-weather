@@ -1,8 +1,9 @@
-class HikingPlanner
+class TrailList
 
-  attr_reader :location, :forecast, :trails
+  attr_reader :id, :location, :forecast, :trails
 
   def initialize(location)
+    @id = nil
     @location = location
     @forecast = {}
     @trails = []
@@ -23,9 +24,18 @@ class HikingPlanner
 
   def get_trails
     coordinates = get_coordinates
-    @trails = HikingProjectService.new.get_trails(coordinates[:lat],
-                                                  coordinates[:lng])[:trails]
+    api_trails = HikingProjectService.new.get_trails(coordinates[:lat],
+                                                    coordinates[:lng])[:trails]
+    @trails = get_distance(api_trails)
     @trails.map! { |trail| Trail.new(trail) }
+  end
+
+  def get_distance(trail_list)
+    trail_list.each do |trail|
+       route = MapquestService.new.get_distance(@location, trail[:latitude],
+                                                trail[:longitude])[:route]
+       trail[:distance] = route[:distance]
+    end
   end
 
 end
