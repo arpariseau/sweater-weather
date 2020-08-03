@@ -3,7 +3,7 @@ require 'rails_helper'
 describe OpenweatherService do
   context "instance methods" do
     context "#get_forecast" do
-      it "returns the weather forecast", :vcr do
+      it "returns the weather forecast" do
         forecast_resp = OpenweatherService.new.get_forecast(33.441792, -94.037689)
 
         expect(forecast_resp).to be_a Hash
