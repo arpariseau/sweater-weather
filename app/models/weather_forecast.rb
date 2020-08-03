@@ -12,8 +12,7 @@ class WeatherForecast
 
   def get_coordinates
     geocode = MapquestService.new.get_geocode(@location)
-    coordinates = geocode[:results].first[:locations].first
-    coordinates[:latLng]
+    geocode[:results].first[:locations].first[:latLng]
   end
 
   def get_forecast

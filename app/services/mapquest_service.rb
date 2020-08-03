@@ -5,6 +5,12 @@ class MapquestService < ApplicationService
     get_json('/geocoding/v1/address', params)
   end
 
+  def get_distance(location, lat, long)
+    params = { from: location,
+               to: "#{lat},#{long}" }
+    get_json('/directions/v2/route', params)
+  end
+
   private
 
   def conn
