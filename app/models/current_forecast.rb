@@ -19,4 +19,8 @@ class CurrentForecast < Forecast
     @sunrise = DateTime.strptime((@sunrise + timezone).to_s, "%s" )
     @sunset = DateTime.strptime((@sunset + timezone).to_s, "%s" )
   end
+
+  def get_weather
+    @weather.first[:main]
+  end
 end
