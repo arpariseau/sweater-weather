@@ -13,4 +13,10 @@ class CurrentForecast < Forecast
     @visibility = forecast[:visibility]
     @uv = forecast[:uvi]
   end
+
+  def convert_time(timezone)
+    @time = DateTime.strptime((@time + timezone).to_s, "%s" )
+    @sunrise = DateTime.strptime((@sunrise + timezone).to_s, "%s" )
+    @sunset = DateTime.strptime((@sunset + timezone).to_s, "%s" )
+  end
 end

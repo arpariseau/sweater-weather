@@ -3,7 +3,7 @@ class WeatherForecast
   attr_reader :id, :location, :current, :hourly, :daily
 
   def initialize(location)
-    @id = 0
+    @id = nil
     @location = location
     @current = nil
     @hourly = []
