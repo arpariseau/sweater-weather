@@ -11,7 +11,7 @@ class RoadTrip
   end
 
   def get_travel_time
-    travel_data = MapquestService.new.get_distance(@origin, @destination)
+    travel_data = MapquestService.new.travel_distance(@origin, @destination)
     @travel_time = travel_data[:route][:formattedTime]
     travel_data[:route][:realTime]
   end

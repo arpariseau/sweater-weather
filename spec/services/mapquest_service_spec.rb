@@ -20,5 +20,17 @@ describe MapquestService do
         expect(location_data[:latLng][:lng]).to eq(-77.019912)
       end
     end
+
+    context '#travel_distance' do
+      it "returns travel time", :vcr do
+        travel_resp = MapquestService.new.travel_distance("Denver,CO", "Pueblo,CO")
+
+        expect(travel_resp).to be_a Hash
+        expect(travel_resp[:route]).to be_a Hash
+
+        expect(travel_resp[:route]).to have_key :formattedTime
+        expect(travel_resp[:route]).to have_key :realTime
+      end
+    end
   end
 end

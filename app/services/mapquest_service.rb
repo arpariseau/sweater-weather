@@ -5,7 +5,7 @@ class MapquestService < ApplicationService
     get_json('/geocoding/v1/address', params)
   end
 
-  def get_distance(origin, destination)
+  def travel_distance(origin, destination)
     params = { from: origin,
                to: destination }
     get_json('/directions/v2/route', params)

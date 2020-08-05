@@ -26,7 +26,7 @@ describe WeatherForecast, type: :model do
       end
     end
 
-    context 'convert_times' do
+    context '#convert_times' do
       it "converts Unix times to datetimes", :vcr do
         @forecast.get_forecast
         expect(@forecast.current.time).to be_a DateTime
