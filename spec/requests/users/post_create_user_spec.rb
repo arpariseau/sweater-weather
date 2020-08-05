@@ -18,16 +18,11 @@ describe 'an api request' do
   end
 
   it 'gives an error if email is not unique' do
-    post_body = { "email": "whatever@example.com",
+    user = create(:user)
+    post_body = { "email": user.email,
                   "password": "password",
                   "password_confirmation": "password" }
     post api_v1_users_path, params: post_body, as: :json
-    expect(response.status).to eq(201)
-
-    replica_post_body = { "email": "whatever@example.com",
-                          "password": "password",
-                          "password_confirmation": "password" }
-    post api_v1_users_path, params: replica_post_body, as: :json
     expect(response.status).to eq(400)
     error_resp = JSON.parse(response.body, symbolize_names: true)
 
