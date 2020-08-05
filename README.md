@@ -63,7 +63,7 @@ UNSPLASH_API_KEY: <your API key here>
 
 ### Made with:
 - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Ruby_logo.svg/200px-Ruby_logo.svg.png" alt="Ruby Logo" width="25" height="25"/> v2.5.3
-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ruby_On_Rails_Logo.svg/200px-Ruby_On_Rails_Logo.svg.png" alt="Rails Logo" width="75" height="25" /> v5.1.7
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ruby_On_Rails_Logo.svg/200px-Ruby_On_Rails_Logo.svg.png" alt="Rails Logo" width="75" height="25" /> v5.2.4
 
 
 ### Made by:
